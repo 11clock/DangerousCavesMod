@@ -6,7 +6,7 @@ import necesse.engine.modLoader.annotations.ModEntry;
 public class DangerousCavesMod {
 
     public void init() {
-        System.out.println("Hello world from my example mod!");
+        System.out.println("Initializing " + this.getClass().getSimpleName());
     }
 
     public void initResources() {
