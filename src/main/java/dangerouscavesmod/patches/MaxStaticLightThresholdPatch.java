@@ -10,7 +10,7 @@ public class MaxStaticLightThresholdPatch {
 
     @Advice.OnMethodEnter
     static void onEnter(@Advice.This MobSpawnLocation mobSpawnLocation, @Advice.Argument(value = 0, readOnly = false) int maxLight) {
-        if (mobSpawnLocation.mob instanceof HostileMob && (mobSpawnLocation.mob.getLevel().isCave)) {
+        if (Util.isHostile(mobSpawnLocation.mob) && (mobSpawnLocation.mob.getLevel().isCave)) {
             maxLight = Integer.MAX_VALUE;
         }
     }
