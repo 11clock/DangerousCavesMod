@@ -16,7 +16,7 @@ public class SpawnParticlesPatch {
 
     @Advice.OnMethodExit
     static void onExit(@Advice.This Mob mob) {
-        if (mob instanceof HostileMob) {
+        if (Util.isHostile(mob)) {
             Level level = mob.getLevel();
             if (level.isClient()) {
                 mob.getLevel().entityManager.addParticle(new SmokePuffParticle(level, mob.x, mob.y), Particle.GType.IMPORTANT_COSMETIC);
